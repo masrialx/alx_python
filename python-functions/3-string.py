@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def reverse_string(string):
     reversed_string = ""
     for char in string:
@@ -6,3 +7,4 @@ def reverse_string(string):
 input_string = "Hello, World!"
 reversed_string = reverse_string(input_string)
 print(reversed_string)
+
