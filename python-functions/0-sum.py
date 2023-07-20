@@ -2,7 +2,6 @@
 def add(a,b):
     return a+b
 
-a=5
-b=7
-sum=add(a,b)
-print(sum)
+print(add(1, 2))
+print(add(98, 0))
+print(add(100, -2))
