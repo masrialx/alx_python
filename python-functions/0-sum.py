@@ -2,7 +2,6 @@
 def add(a, b):
     return a + b
 
-#!/usr/bin/env python3
 add = __import__('0-sum').add
 
 print(f'[Got]      {add(1, 2)}')
