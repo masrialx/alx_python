@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 import sys
+
 
 def main():
     num_args = len(sys.argv) - 1
@@ -14,6 +14,7 @@ def main():
     if num_args > 0:
         for i in range(1, num_args + 1):
             print(f"{i}: {sys.argv[i]}")
+
 
 if __name__ == "__main__":
     main()
