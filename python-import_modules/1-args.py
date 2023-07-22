@@ -1,4 +1,4 @@
-#!/path/to/python3
+#!/usr/bin/python3
 import sys
 
 def main():
