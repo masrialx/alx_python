@@ -1,3 +1,4 @@
+#!/path/to/python3
 import sys
 
 def main():
