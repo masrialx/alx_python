@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-no_c = __import__('0-no_c').no_c
-
-word = "School"
-new_word = no_c(word)
-
-print(new_word)
-print(word)
-
-# Update the original 'word' variable with the new_word
-word = new_word
-
-print(word)
+def no_c(my_string):
+    result = ""
+    for char in my_string:
+        if char != 'c' and char != 'C':
+            result += char
+    return result
+print(no_c("Holberton School"))  # Output: "Holberton Shool"
+print(no_c("Chicago"))          # Output: "hiago"
+print(no_c("C is fun!"))        # Output: " is fun!"
