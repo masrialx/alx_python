@@ -18,6 +18,5 @@ def validate_password(password):
         return True
     else:
         return False
-password = "Abc123"
-is_valid = validate_password(password)
-print(is_valid)
+
+
