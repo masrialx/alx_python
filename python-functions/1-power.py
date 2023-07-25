@@ -4,5 +4,3 @@ def pow(a, b):
     for x in range(b):
         result *= a
     return result
-result = pow(2, 3)
-print(result)
