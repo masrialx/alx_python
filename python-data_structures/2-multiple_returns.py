@@ -1,18 +1,9 @@
 #!/usr/bin/env python3
+def multiple_returns(sentence):
+    length = len(sentence)
+    first = sentence[0] if length > 0 else None
+    return (length, first)
+sentence = "At Holberton school, I learnt C!"
+length, first = multiple_returns(sentence)
+print("Length: {:d} - First character: {}".format(length, first))
 
-def print_matrix_integer(matrix=[[]]):
-    for row in matrix:
-        for i in range(len(row)):
-            if i == len(row) - 1:
-                print("{:d}".format(row[i]))
-            else:
-                print("{:d}".format(row[i]), end=" ")
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-print_matrix_integer(matrix)
-print("--")
-print_matrix_integer()
