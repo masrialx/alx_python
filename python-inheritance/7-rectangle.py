@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 7-rectangle.py
 Module containing the Rectangle class.

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 8-square.py
 Module containing the Square class that inherits from Rectangle.
