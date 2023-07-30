@@ -26,6 +26,7 @@ Todo:
 
 """
 
+
 class Square:
     """
     Represents a square.
@@ -42,5 +43,4 @@ class Square:
             size (int): The size of the square.
         """
         self.__size = size
-
 
