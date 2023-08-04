@@ -21,4 +21,7 @@ Todo:
 class BaseGeometry:
     """An empty class defining the base geometry."""
 
-    pass
+    def __dir__(self):
+        """Remove __init_subclass__ from the list of attributes."""
+        attributes = dir(self.__class__)
+        return [attr for attr in attributes if attr != '__init_subclass__']
