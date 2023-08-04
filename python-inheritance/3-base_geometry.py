@@ -25,3 +25,4 @@ class BaseGeometry:
         """Remove __init_subclass__ from the list of attributes."""
         attributes = dir(self.__class__)
         return [attr for attr in attributes if attr != '__init_subclass__']
+
