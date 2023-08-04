@@ -1,46 +1,17 @@
-# -*- coding: utf-8 -*-
-"""Module containing the Rectangle class.
+#!/usr/bin/python3
+Rectangle = __import__('6-rectangle').Rectangle
 
-This module defines the Rectangle class, which inherits from the BaseGeometry class.
+r = Rectangle(3, 5)
 
-Example:
-    To use the Rectangle class, simply create an instance of it with positive integer values for width and height.
+print(r)
+print(dir(r))
 
-        r = Rectangle(3, 5)
+try:
+    print("Rectangle: {} - {}".format(r.width, r.height))
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
 
-Attributes:
-    None
-
-Todo:
-    * Implement additional methods or attributes as needed.
-    * Add functionality for computing the area of a rectangle.
-
-"""
-
-from 5-base_geometry import BaseGeometry
-
-class Rectangle(BaseGeometry):
-    """A class representing a rectangle."""
-
-    def __init__(self, width, height):
-        """Initialize the rectangle with given width and height.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-
-        Raises:
-            TypeError: If either width or height is not an integer.
-            ValueError: If either width or height is not a positive integer.
-
-        """
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
-
-    def __str__(self):
-        """Return a string representation of the rectangle."""
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
-
-    # Implement additional methods for Rectangle as needed
+try:
+    r2 = Rectangle(4, True)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
