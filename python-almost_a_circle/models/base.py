@@ -1,3 +1,8 @@
+"""
+models/base.py
+Module containing the Base class that manages the id attribute for all future classes.
+"""
+
 class Base:
     """
     Base class to manage id attribute in all future classes.
