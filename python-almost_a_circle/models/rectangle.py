@@ -22,47 +22,19 @@ class Rectangle(Base):
             y (int, optional): The y-coordinate of the rectangle. Defaults to 0.
             id (int, optional): The id attribute for the instance. Defaults to None.
         """
-        super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        # ...
 
     @property
     def width(self):
+        """Getter method for the width attribute."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        self.integer_validator("width", value)
-        self.__width = value
+        """Setter method for the width attribute."""
+        # ...
 
-    @property
-    def height(self):
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        self.integer_validator("height", value)
-        self.__height = value
-
-    @property
-    def x(self):
-        return self.__x
-
-    @x.setter
-    def x(self, value):
-        self.integer_validator("x", value)
-        self.__x = value
-
-    @property
-    def y(self):
-        return self.__y
-
-    @y.setter
-    def y(self, value):
-        self.integer_validator("y", value)
-        self.__y = value
+    # Other methods with docstrings
 
     def area(self):
         """
@@ -77,10 +49,7 @@ class Rectangle(Base):
         """
         Prints the rectangle with the character '#'.
         """
-        for _ in range(self.__y):
-            print()
-        for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
+        # ...
 
     def __str__(self):
         """
