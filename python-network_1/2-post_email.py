@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Takes a URL and an email address, sends a POST request to the URL with the email as a parameter, and displays the response body.
 """
