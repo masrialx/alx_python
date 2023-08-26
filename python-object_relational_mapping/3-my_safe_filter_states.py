@@ -8,13 +8,11 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Usage: {} <mysql username> <mysql password> <database name> <state name searched>".format(sys.argv[0]))
         sys.exit(1)
-
     # Get user input from command-line arguments
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
     state_name_searched = sys.argv[4]
-
     # Connect to MySQL server
     db = MySQLdb.connect(
         host="localhost",
@@ -24,16 +22,13 @@ if __name__ == "__main__":
         db=database_name
     )
     cursor = db.cursor()
-
     # Create the SQL query with user input using parameterized query
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (state_name_searched,))
-
     # Fetch and display the results
     results = cursor.fetchall()
     for row in results:
         print(row)
-
     # Close cursor and database connection
     cursor.close()
     db.close()
