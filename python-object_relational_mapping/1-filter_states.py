@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lists all states with a name starting with N from the database hbtn_0e_0_usa"""
+"""Lists all states with a name starting with N (case-insensitive) from the database hbtn_0e_0_usa"""
 import sys
 import MySQLdb
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Create the SQL query
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_general_ci ORDER BY id ASC"
 
     # Execute the query
     cursor.execute(query)
