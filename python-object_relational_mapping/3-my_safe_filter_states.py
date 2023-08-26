@@ -16,7 +16,13 @@ if __name__ == "__main__":
     state_name_searched = sys.argv[4]
 
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=mysql_username, passwd=mysql_password, db=database_name)
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=mysql_username,
+        passwd=mysql_password,
+        db=database_name
+    )
     cursor = db.cursor()
 
     # Create the SQL query with user input using parameterized query
