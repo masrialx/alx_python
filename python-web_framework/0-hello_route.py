@@ -1,32 +1,29 @@
-from flask import Flask,render_template
-app=Flask(__name__)
+"""
+This script creates a simple Flask web application.
 
-post =[
-    {
-        "name":"Masresha",
-        "age":"22",
-        "data":"2021"
-    },
-      {
-        "name":"Masresha",
-        "age":"22",
-        "data":"2021"
-    },
-      {
-        "name":"Masresha",
-        "age":"22",
-        "data":"2021"
-    },
-]
+Usage:
+    Run this script and access the web application in your browser or using curl.
 
-@app.route('/')
-def Hello():
-    return render_template('home.html',post=post,title="home")
+Routes:
+    /: Displays "Hello HBNB!"
 
+Note:
+    The web application listens on 0.0.0.0 and port 5000.
+"""
 
-@app.route('/about')
-def About():
-    return render_template('about.html',title="about")
+from flask import Flask
 
-if __name__=='__main__':
-    app.run(debug=True)
+app = Flask(__name__)
+
+@app.route("/", strict_slashes=False)
+def hello():
+    """
+    This function defines the route '/' which displays "Hello HBNB!".
+    
+    Returns:
+        str: The string "Hello HBNB!" which is displayed in the browser.
+    """
+    return "Hello HBNB!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
