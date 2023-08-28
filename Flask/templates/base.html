@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  {% block title %}
+  
+  {% endblock %}
+</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .menu-bar {
+    background-color: #333;
+    overflow: hidden;
+  }
+  .menu-bar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .menu-bar a:hover {
+    background-color: #555;
+  }
+  .dashboard {
+    padding: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  .hidden-checkbox {
+    display: none;
+  }
+  .hidden-checkbox + label {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+  }
+  .hidden-checkbox:checked + label {
+    background-color: #f2f2f2;
+  }
+  .add-button, .remove-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .add-button:hover, .remove-button:hover {
+    background-color: #777;
+  }
+</style>
+</head>
+<body>
+
+<div class="menu-bar">
+    <a href="{{ url_for('Home') }}">Home</a>
+    <a href="{{ url_for('About') }}">About</a>
+    <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="dashboard">
+  <h2>Dashboard</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+
+  {% for List in List%}
+  
+  <tr>
+    <td>{{List.name}}</td>
+    <td>{{List.email}}</td>
+    <td>{{List.id}}</td>
+    <td><button class="remove-button">Remove</button></td>
+  </tr>
+
+  {% endfor%}
+   
+  </table>
+  
+  <input type="checkbox" class="hidden-checkbox" id="addRowCheckbox">
+  <label for="addRowCheckbox" class="add-button">Add Row</label>
+  
+  <input type="checkbox" class="hidden-checkbox" id="removeRowCheckbox">
+  <label for="removeRowCheckbox" class="remove-button">Remove Row</label>
+</div>
+
+</body>
+</html>
