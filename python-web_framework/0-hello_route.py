@@ -19,7 +19,7 @@ app = Flask(__name__)
 def hello():
     """
     This function defines the route '/' which displays "Hello HBNB!".
-    
+
     Returns:
         str: The string "Hello HBNB!" which is displayed in the browser.
     """
