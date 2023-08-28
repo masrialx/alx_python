@@ -1,26 +1,29 @@
-"""Flask web application to display 'Hello HBNB!'.
+"""
+This script creates a simple Flask web application.
 
-The module creates a Flask application that handles 
-requests to the route '/' to display a greeting.
+Usage:
+    Run this script and access the web application in your browser or using curl.
+
+Routes:
+    /: Displays "Hello HBNB!"
+
+Note:
+    The web application listens on 0.0.0.0 and port 5000.
 """
 
 from flask import Flask
 
-class HBNBFlaskApp(Flask):
-  """Flask application class to display 'Hello HBNB!'.
+app = Flask(__name__)
 
-  Handles requests to route '/' to display greeting.
-  """
+@app.route("/", strict_slashes=False)
+def hello():
+    """
+    This function defines the route '/' which displays "Hello HBNB!".
+    
+    Returns:
+        str: The string "Hello HBNB!" which is displayed in the browser.
+    """
+    return "Hello HBNB!"
 
-  def __init__(self, name):
-    super().__init__(name)
-
-    @self.route('/', strict_slashes=False)
-    def display_greeting():
-      """Display 'Hello HBNB!' greeting."""
-      return 'Hello HBNB!'
-      
-if __name__ == '__main__':
-  """Run the Flask web application."""
-  app = HBNBFlaskApp(__name__)
-  app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
