@@ -28,7 +28,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the query to retrieve case-sensitive states starting with 'n'
-    cursor.execute("SELECT * FROM states WHERE BINARY name LIKE 'n%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'n%' ORDER BY id ASC")
 
     # Fetch all the results
     results = cursor.fetchall()
