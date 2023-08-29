@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Displays all values in the states table of hbtn_0e_0_usa where name matches the argument.
+Lists all states with a name starting with N (upper N)
+from the database hbtn_0e_0_usa.
 """
 
 import sys
@@ -30,10 +31,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the query to retrieve states where name matches the input
-    query = ("SELECT * FROM states "
-             "WHERE name LIKE BINARY %s "
-             "ORDER BY id ASC")
-    cursor.execute(query, (state_name,))
+    query = ("SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC")
+    cursor.execute(query, (state_name))
 
     # Fetch all the results
     results = cursor.fetchall()
