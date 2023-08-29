@@ -30,7 +30,11 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the query to retrieve states where name matches the input
-    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
+    query = (
+        "SELECT * FROM states "
+        "WHERE name LIKE BINARY %s "
+        "ORDER BY id ASC"
+    )
     cursor.execute(query, (state_name,))
 
     # Fetch all the results
