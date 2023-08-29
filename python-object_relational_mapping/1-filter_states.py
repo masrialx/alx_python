@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Lists all states with a name starting with N (case-sensitive)
+Lists all states with a name starting with N (upper N)
 from the database hbtn_0e_0_usa.
 """
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # Create a cursor
     cursor = db.cursor()
 
-    # Execute the query to retrieve case-sensitive states starting with 'N'
+    # Execute the query to retrieve states starting with 'N'
     cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
 
     # Fetch all the results
