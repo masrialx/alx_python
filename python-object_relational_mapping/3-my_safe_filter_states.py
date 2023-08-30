@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 """Safely filters states by user input"""
 import sys
 import MySQLdb
