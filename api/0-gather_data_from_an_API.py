@@ -22,7 +22,7 @@ def get_employee_data(employee_id):
 def display_employee_progress(employee_name, completed_tasks, total_tasks, completed_task_titles):
     print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
     for title in completed_task_titles:
-        print(f"\t{title}")  # Use a tab character before the task title
+        print(f"    {title}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
