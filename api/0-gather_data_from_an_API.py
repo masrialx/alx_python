@@ -1,42 +1,34 @@
+#!/usr/bin/python3
+"""
+Checks student output for returning info from REST API
+"""
+
 import requests
 import sys
 
-def get_employee_data(employee_id):
-    base_url = "https://jsonplaceholder.typicode.com"
-    
-    # Fetch employee details
-    employee_response = requests.get(f"{base_url}/users/{employee_id}")
-    employee_data = employee_response.json()
-    employee_name = employee_data.get("name")
+users_url = "https://jsonplaceholder.typicode.com/users"
+todos_url = "https://jsonplaceholder.typicode.com/todos"
 
-    # Fetch employee's TODO list
-    todos_response = requests.get(f"{base_url}/users/{employee_id}/todos")
-    todos_data = todos_response.json()
 
-    # Calculate the number of completed and total tasks
-    total_tasks = len(todos_data)
-    completed_tasks = sum(1 for todo in todos_data if todo['completed'])
+def check_tasks(id):
+    """ Fetch user name, number of tasks """
 
-    return employee_name, completed_tasks, total_tasks, todos_data
+    resp = requests.get(todos_url).json()
 
-def display_employee_progress(employee_name, completed_tasks, total_tasks, completed_task_titles):
-    print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
-    for title in completed_task_titles:
-        print(f"    {title}")
+    filename = 'student_output'
+    count = 0
+    with open(filename, 'r') as f:
+        for line in f:
+            count += 1
+            if line.startswith("\t "):
+                print("Task {} Formatting: OK".format(count))
+            else:
+                print("Task {} Formatting: Incorrect".format(count))
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
+        print("Usage: python3 main_4.py <student_id>")
         sys.exit(1)
     
-    employee_id = int(sys.argv[1])
-
-    try:
-        employee_name, completed_tasks, total_tasks, todos_data = get_employee_data(employee_id)
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-        sys.exit(1)
-
-    completed_task_titles = [todo['title'] for todo in todos_data if todo['completed']]
-    
-    display_employee_progress(employee_name, completed_tasks, total_tasks, completed_task_titles)
+    check_tasks(int(sys.argv[1]))
