@@ -3,6 +3,15 @@ import requests
 import sys
 
 def get_user_info(employee_id):
+    """
+    Retrieve user information (ID and username) using the given employee_id.
+    
+    Args:
+        employee_id (int): The ID of the employee.
+        
+    Returns:
+        Tuple[int, str]: A tuple containing the user's ID and username.
+    """
     user_response = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}")
     if user_response.status_code == 200:
         user_data = user_response.json()
@@ -11,6 +20,9 @@ def get_user_info(employee_id):
         return None, None
 
 def main():
+    """
+    Main function to export user tasks to a JSON file.
+    """
     if len(sys.argv) != 2:
         print("Usage: python3 2-export_to_JSON.py <employee_id>")
         sys.exit(1)
